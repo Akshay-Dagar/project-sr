@@ -31,7 +31,7 @@ app.get('/api/order', async (_, res) => {
 
 //create new order
 app.post('/api/order', async (req, res) => {
-    const newOrder = Order.create(req.body)
+    const newOrder = new Order(req.body)
     try {
         const savedOrder = await newOrder.save();
         res.status(201).json(savedOrder);
@@ -44,19 +44,15 @@ app.post('/api/order', async (req, res) => {
 //patch (update) order status
 app.patch('/api/order', async (req, res) => {
     try {
-        Order.updateOne({ _id: req.body.id }, { status: req.body.status }, (err, res) => {
-            if (err)
-                throw err
-            else
-                res.status(201).json(savedOrder);
-        });
+        const newOrder = req.body
+        delete newOrder._id
+        const savedOrder = await Order.findByIdAndUpdate(req.body._id, req.body, {new: true})
+        res.status(201).json(savedOrder)
     }
     catch (err) {
         res.status(409).json({message: err.message});
     }
 });
-
-
 
 //connect to mongo db and run server if connection successful
 mongoose.connect(process.env.MONGODB_CONNECTION_URL)

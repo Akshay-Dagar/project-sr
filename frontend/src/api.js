@@ -1,12 +1,33 @@
  // Send the login credentials to the backend for validation
- //tbd
+ // tbd
+
+import { setMessage } from "./Reducers/message"
+import { setOrders } from "./Reducers/orders"
 
 const endpoint = "http://localhost:5000/api"
 
-export const createOrder = async order => {
+// Get all orders as a list
+const getOrders = () => async dispatch => {
     try {
         const url = `${endpoint}/order`
-        console.log(order);
+        const res = await fetch(url)
+    
+        const data = await res.json()
+        if (res.status === 200) {
+            dispatch(setOrders(data))
+        } else {
+            throw res.status
+        }
+    }
+    catch (err) {
+        dispatch(setMessage({value: "Failed to get orders - Something went wrong", type: "Error"}))
+    }
+}
+
+// Create a new order
+const createOrder = order => async dispatch => {
+    try {
+        const url = `${endpoint}/order`
         const res = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -14,14 +35,37 @@ export const createOrder = async order => {
         })
     
         const data = await res.json()
-        if (data.statusCode === "201") {
-            return {value: "Success!!! Your order has been created", type: "Success"}
+        if (res.status === 201) {
+            dispatch(setMessage({value: "Success!!! Your order has been created", type: "Success"}))
         } else {
-            throw data.statusCode
+            throw res.status
         }
     }
     catch (err) {
-        console.log(err);
-        return {value: "Failed to create order - Something went wrong", type: "Error"}
+        dispatch(setMessage({value: "Failed to create order - Something went wrong", type: "Error"}))
     }
 }
+
+// Create a new order
+const updateOrder = order => async dispatch => {
+    try {
+        const url = `${endpoint}/order`
+        const res = await fetch(url, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(order)
+        })
+    
+        const data = await res.json()
+        if (res.status === 201) {
+            dispatch(setMessage({value: "Success!!! Your order has been updated", type: "Success"}))
+        } else {
+            throw res.status
+        }
+    }
+    catch (err) {
+        dispatch(setMessage({value: "Failed to update order - Something went wrong", type: "Error"}))
+    }
+}
+
+export default {getOrders, createOrder, updateOrder}

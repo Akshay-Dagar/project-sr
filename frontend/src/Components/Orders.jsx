@@ -1,38 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import api from '../api';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]); // Initialize orders state
+  const dispatch = useDispatch()
+  const orders = useSelector(state => state.orders.value)
 
-  const handleOrderStatusChange = (orderId, newStatus) => {
-    // Update the status of the order with the given ID
-    setOrders(prevOrders => prevOrders.map(order => {
-      if (order.id === orderId) {
-        return {
-          ...order,
-          status: newStatus
-        };
-      }
-      return order;
-    }));
-  };
+  useEffect(() => {
+    dispatch(api.getOrders())
+  }, [])
+  
+
+  const handleOrderStatusChange = (order, newStatus) => {
+    order.status = newStatus
+    dispatch(api.updateOrder(order))
+  }
 
   return (
     <div>
       {/* Display a list of orders */}
-      {orders.map(order => (
-        <div key={order.id}>
-          <p>Order ID: {order.id}</p>
+      {orders?.map(order => (
+        <div key={order._id}>
+          <p>Order ID: {order._id}</p>
           <p>Status: {order.status}</p>
-          {/* Add buttons to change the order status */}
-          <button onClick={() => handleOrderStatusChange(order.id, 'Partially Fulfilled')}>
-            Mark as Partially Fulfilled
-          </button>
-          <button onClick={() => handleOrderStatusChange(order.id, 'Fulfilled')}>
-            Mark as Fulfilled
-          </button>
-          <button onClick={() => handleOrderStatusChange(order.id, 'Cancelled')}>
-            Cancel Order
-          </button>
+          <div>
+            <label htmlFor="mark-as-dropdown">Mark as</label>
+            <select
+              id="mark-as-dropdown"
+              onChange={event => handleOrderStatusChange(order, event.target.value)}
+            >
+              <option value="Completed">Completed</option>
+              <option value="Partially Completed">Partially Completed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
         </div>
       ))}
     </div>

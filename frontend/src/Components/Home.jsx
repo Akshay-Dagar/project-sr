@@ -3,7 +3,7 @@ import MessageBar from './MessageBar'
 import CreateOrder from './CreateOrder'
 import Order from './Order'
 import { useSelector } from 'react-redux'
-import Orders from '../Reducers/orders'
+import Orders from './Orders'
 
 const Home = () => {
   const selectedScreen = useSelector(state => state.selectedScreen.value)

@@ -1,19 +1,18 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { createOrder } from '../api';
-import { setMessage } from '../Reducers/message';
+import api from '../api';
 
 const CreateOrder = () => {
   const dispatch = useDispatch()
   const [formData, setFormData] = useState({image: null, comments: null})
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const newOrder = {
       creator: 'dummy_user',       // to be set to proper name later
       image: formData.image,
       comments: formData.comments
     };
-    dispatch(setMessage(await createOrder(newOrder)))
+    dispatch(api.createOrder(newOrder))
   };
 
   const handleChange = e => {
