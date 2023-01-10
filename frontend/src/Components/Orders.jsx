@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import api from '../api';
 import { useDispatch, useSelector } from 'react-redux';
+import setSelectedOrder from '../Reducers/selectedOrder';
 
 const Orders = () => {
   const dispatch = useDispatch()
@@ -34,6 +35,7 @@ const Orders = () => {
               <option value="Cancelled">Cancelled</option>
             </select>
           </div>
+          <button onClick={dispatch(setSelectedOrder(order))}>View</button>
         </div>
       ))}
     </div>
