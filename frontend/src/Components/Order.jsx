@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
 
-const Order = ({ order, handleStatusChange }) => {
+const Order = ({ handleStatusChange }) => {
+  const order = useSelector(state => state.selectedOrder.value)
   const [status, setStatus] = useState(order.status); // Initialize order status state
 
   const handleChange = event => {

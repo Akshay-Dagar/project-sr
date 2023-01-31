@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import api from '../api';
 import { useDispatch, useSelector } from 'react-redux';
-import setSelectedOrder from '../Reducers/selectedOrder';
+import { setSelectedOrder } from '../Reducers/selectedOrder';
 
 const Orders = () => {
   const dispatch = useDispatch()
