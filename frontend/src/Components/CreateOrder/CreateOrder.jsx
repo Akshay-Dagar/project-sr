@@ -2,36 +2,51 @@ import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import api from '../../api';
 import './CreateOrder.styles.scss'
+import { BsTrashFill } from 'react-icons/bs'
 
 const CreateOrder = () => {
   const dispatch = useDispatch()
-  const [formData, setFormData] = useState({image: null, comments: null})
+  const [formData, setFormData] = useState({images: [], comments: null})
 
   const handleSubmit = () => {
     const newOrder = {
       creator: 'dummy_user',       // to be set to proper name later
-      image: formData.image,
+      images: formData.images,
       comments: formData.comments
     };
     dispatch(api.createOrder(newOrder))
   };
 
   const handleChange = e => {
-    setFormData({...formData, [e.target.name]: e.target.value})
+    let imgs = []
+    Array.from(e.target.files).map(file => imgs.push(URL.createObjectURL(file)))
+    setFormData({...formData, [e.target.name]: [...formData[e.target.name], imgs]})
+  }
+
+  const removeImage = img => {
+    const imgs = formData.images.filter(imgName => imgName !== img)
+    setFormData({...formData, images: [...imgs]})
   }
 
   return (
     <div className="order-form">
         <div className="order-form__upload-container">
-          <label className="order-form__upload-label">Upload Image</label>
-          <input className="order-form__upload-input" type="file" name='image' onChange={handleChange} />
-          <button style={{backgroundColor: 'red', color: 'white', width: '90%', height: '4rem', margin: '2rem', fontSize: 'large'}}>Choose File(s)</button>
+          <div className='order-form__images'>
+            {formData.images.map((img, idx) => (
+              <div className='order-form__image-container'>
+                <img className='order-form__image-img' src={img} key={`image-${idx}`} />
+                <button className='order-form__image-remove' onClick={() => removeImage(img)}><BsTrashFill /></button>
+              </div>
+            ))}
+          </div>
+          
+          <input id="order-form__upload-input" type="file" name='images' onChange={handleChange} hidden accept='image/*' multiple />
+          <label for="order-form__upload-input" className='order-form__upload-label'>Choose File(s)</label>
         </div>
         <div className="order-form__comments-container">
-          {/* <label className="order-form__comments-label">Comments</label> */}
           <textarea className="order-form__comments-input" rows={2} cols={30} type="text" name='comments' placeholder='Additional Comments...' onChange={handleChange} />
         </div>
-        <button className="order-form__submit-btn" type="button" onClick={handleSubmit} disabled={!formData.image}>Create Order</button>
+        <button className="order-form__submit-btn" type="button" onClick={handleSubmit} disabled={!formData.images || formData.images.length === 0}>Create Order</button>
     </div>
   );
 };
