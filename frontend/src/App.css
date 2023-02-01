@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+#copyright {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: small;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: darkcyan;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+}
+
+#copyright a {
+  color: cornflowerblue;
+}

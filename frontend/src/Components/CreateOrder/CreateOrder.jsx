@@ -24,14 +24,14 @@ const CreateOrder = () => {
     <div className="order-form">
         <div className="order-form__upload-container">
           <label className="order-form__upload-label">Upload Image</label>
-          <button style={{backgroundColor: 'red', color: 'white', width: '90%', height: '4rem', margin: '2rem', fontSize: 'large'}}>Choose File</button>
-          {/* <input className="order-form__upload-input" type="file" name='image' onChange={handleChange} /> */}
+          <input className="order-form__upload-input" type="file" name='image' onChange={handleChange} />
+          <button style={{backgroundColor: 'red', color: 'white', width: '90%', height: '4rem', margin: '2rem', fontSize: 'large'}}>Choose File(s)</button>
         </div>
         <div className="order-form__comments-container">
-          <label className="order-form__comments-label">Comments</label>
-          <input className="order-form__comments-input" type="text" name='comments' onChange={handleChange} />
+          {/* <label className="order-form__comments-label">Comments</label> */}
+          <textarea className="order-form__comments-input" rows={2} cols={30} type="text" name='comments' placeholder='Additional Comments...' onChange={handleChange} />
         </div>
-        <button className="order-form__submit-btn" type="button" onClick={handleSubmit}>Create Order</button>
+        <button className="order-form__submit-btn" type="button" onClick={handleSubmit} disabled={!formData.image}>Create Order</button>
     </div>
   );
 };
