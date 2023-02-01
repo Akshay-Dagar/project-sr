@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import api from '../api';
 
-const Order = ({ handleStatusChange }) => {
+const Order = () => {
   const order = useSelector(state => state.selectedOrder.value)
   const [status, setStatus] = useState(order.status); // Initialize order status state
+  const dispatch = useDispatch()
 
   const handleChange = event => {
     setStatus(event.target.value);
@@ -12,7 +14,8 @@ const Order = ({ handleStatusChange }) => {
   const handleSubmit = event => {
     event.preventDefault();
     // Call the handleStatusChange function to update the order status
-    handleStatusChange(order.id, status);
+    order.status = status
+    dispatch(api.updateOrder(order))
   };
 
   return (

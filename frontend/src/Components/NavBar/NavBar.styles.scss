@@ -1,0 +1,29 @@
+.navbar {
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+}
+  
+.navbar__left {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.navbar__right {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+}
+
+.navbar-item {
+    margin: 0 1rem;
+    cursor: pointer;
+    font-size: x-large;
+}

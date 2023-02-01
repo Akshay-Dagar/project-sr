@@ -1,9 +1,10 @@
 import React from 'react'
 import MessageBar from './MessageBar'
-import CreateOrder from './CreateOrder'
+import NavBar from './NavBar/NavBar'
+import CreateOrder from './CreateOrder/CreateOrder'
 import Order from './Order'
 import { useSelector } from 'react-redux'
-import Orders from './Orders'
+import Orders from './Orders/Orders'
 
 const Home = () => {
   const selectedScreen = useSelector(state => state.selectedScreen.value)
@@ -13,7 +14,7 @@ const Home = () => {
     return selectedOrder 
         ? <Order /> 
         : selectedScreen === 'createOrder' 
-        ? <CreateOrder /> 
+        ? <CreateOrder />
         : selectedScreen === 'orders'
         ? <Orders />
         : null
@@ -21,7 +22,7 @@ const Home = () => {
 
   return (
     <div>
-        {/* <NavBar /> tbd*/}
+        <NavBar />
         <MessageBar />
         {getSelectedScreen()}
     </div>
