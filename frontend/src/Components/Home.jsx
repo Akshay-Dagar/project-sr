@@ -1,5 +1,5 @@
 import React from 'react'
-import MessageBar from './MessageBar'
+import MessageBar from './MessageBar/MessageBar'
 import NavBar from './NavBar/NavBar'
 import CreateOrder from './CreateOrder/CreateOrder'
 import Order from './Order'

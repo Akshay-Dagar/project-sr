@@ -1,0 +1,33 @@
+.message-success {
+    background-color: rgb(2, 176, 2);
+    button {
+        background-color: rgb(2, 176, 2)
+    }
+}
+
+.message-info {
+    background-color: blueviolet;
+    button {
+        background-color: blueviolet;
+    }
+}
+
+.message-error {
+    background-color: red;
+    button {
+        background-color: red;
+    }
+}
+
+.message-bar {
+    color: white;
+    padding: 1rem;
+    font-size: x-large;
+
+    button {
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: x-large;
+    }
+}

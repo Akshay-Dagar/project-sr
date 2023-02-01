@@ -1,7 +1,9 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearMessage } from '../Reducers/message'
+import { clearMessage } from '../../Reducers/message'
+
+import './MessageBar.styles.scss'
 
 const MessageBar = () => {
   const message = useSelector(state => state.message.value)
@@ -14,7 +16,7 @@ const MessageBar = () => {
   
   return (
     message ? 
-      <div>
+      <div className={`message-bar ${messageType === "Error" ? 'message-error' : messageType === 'Success' ? 'message-success' : 'message-info'}`}>
         <span>{message}</span>
         <button onClick={handleClose}><AiOutlineClose /></button>
       </div>
