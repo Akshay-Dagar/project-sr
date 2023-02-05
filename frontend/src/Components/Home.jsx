@@ -5,6 +5,7 @@ import CreateOrder from './CreateOrder/CreateOrder'
 import Order from './Order'
 import { useSelector } from 'react-redux'
 import Orders from './Orders/Orders'
+import Profile from './Profile/Profile'
 
 const Home = () => {
   const selectedScreen = useSelector(state => state.selectedScreen.value)
@@ -17,6 +18,8 @@ const Home = () => {
         ? <CreateOrder />
         : selectedScreen === 'orders'
         ? <Orders />
+        : selectedScreen === 'profile'
+        ? <Profile />
         : null
   }
 

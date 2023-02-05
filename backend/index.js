@@ -46,8 +46,6 @@ app.post('/api/order', async (req, res) => {
 //patch (update) order status
 app.patch('/api/order', async (req, res) => {
     try {
-        const newOrder = req.body
-        delete newOrder._id
         const savedOrder = await Order.findByIdAndUpdate(req.body._id, req.body, {new: true})
         res.status(201).json(savedOrder)
     }

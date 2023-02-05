@@ -10,3 +10,10 @@ export const imgToBase64 = async imgUrl => {
       reader.readAsDataURL(data);
     })
 }
+
+export const dateOptions = {
+  weekday: "long", //to display the full name of the day, you can use short to indicate an abbreviation of the day
+  day: "numeric",
+  month: "long", //to display the full name of the month
+  year: "numeric"
+}

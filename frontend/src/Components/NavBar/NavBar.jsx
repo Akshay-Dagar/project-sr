@@ -18,11 +18,17 @@ const NavBar = () => {
     dispatch(setSelectedOrder(null))
     dispatch(setSelectedScreen("orders"))
   }
+
+  const handleClickProfile = () => {
+    dispatch(setSelectedOrder(null))
+    dispatch(setSelectedScreen("profile"))
+  }
+
   return (
     <div className="navbar">
           <AiFillHome className="navbar-item" onClick={handleClickHome} style={{order: 1}} />
           <FaClipboardList className="navbar-item" onClick={handleClickOrders} style={{order: 0}} />
-          <FaUser className="navbar-item" style={{order: 2}} />
+          <FaUser className="navbar-item" onClick={handleClickProfile} style={{order: 2}} />
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import api from '../../api';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedOrder } from '../../Reducers/selectedOrder';
-import { BsTrashFill } from 'react-icons/bs'
+import OrderThumb from './OrderThumb';
 
 const Orders = () => {
   const dispatch = useDispatch()
@@ -23,11 +22,8 @@ const Orders = () => {
       {/* Display a list of orders */}
       {orders?.map(order => (
         <div key={`order-${order._id}`} className="order-root">
-          <div className='order-content'>
-            <p>Order ID: {order._id}</p>
-            <p>Status: {order.status}</p>
-          </div>
-          <div className='order-actions'>
+          <OrderThumb order={order}/>
+          {/* <div className='order-actions'>
             <button><BsTrashFill /></button>
             <label htmlFor="mark-as-dropdown">Mark as</label>
             <select
@@ -39,7 +35,7 @@ const Orders = () => {
               <option value="Cancelled">Cancelled</option>
             </select>
             <button onClick={() => dispatch(setSelectedOrder(order))}>View</button>
-          </div>
+          </div> */}
         </div>
       ))}
     </div>

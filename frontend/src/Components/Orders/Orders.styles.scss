@@ -1,3 +1,39 @@
+.order-content__container {
+    width: 95%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    background-color:rgb(224, 242, 242);
+    cursor: pointer;
+}
+
+.order-content__body {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+    align-items: flex-start;
+    font-size: larger;
+    padding: 1rem;
+
+    b {
+        font-weight: 600;
+    }
+}
+
 .orders-container {
-    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.order-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-thumbnail {
+    max-height: 500px;
 }

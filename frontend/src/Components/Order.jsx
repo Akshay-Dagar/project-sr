@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import api from '../api';
+import { dateOptions } from '../utils';
 
 const Order = () => {
   const order = useSelector(state => state.selectedOrder.value)
@@ -13,16 +14,8 @@ const Order = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // Call the handleStatusChange function to update the order status
-    order.status = status
-    dispatch(api.updateOrder(order))
-  }
-
-  const dateOptions = {
-      weekday: "long", //to display the full name of the day, you can use short to indicate an abbreviation of the day
-      day: "numeric",
-      month: "long", //to display the full name of the month
-      year: "numeric"
+    const newOrder = {...order, status: status}
+    dispatch(api.updateOrder(newOrder))
   }
 
   let createdAt = new Date(order.createdAt)
