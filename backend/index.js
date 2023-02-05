@@ -6,6 +6,8 @@ import Order from "./models/order.js";
 
 const app = express();
 app.use(cors());
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 dotenv.config();
 
 //greet
@@ -21,7 +23,7 @@ app.get(['/','/api'], async (_, res) => {
 //get all orders
 app.get('/api/order', async (_, res) => {
     try {
-        const orders = await Order.find()
+        const orders = await Order.find({}, {'createdAt': 1, 'comments': 1, 'creator': 1, 'status': 1, "images":{$slice:1}})
         res.status(200).json(orders)
     }
     catch (err) {

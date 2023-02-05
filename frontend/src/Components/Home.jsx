@@ -22,9 +22,9 @@ const Home = () => {
 
   return (
     <div>
-        <NavBar />
         <MessageBar />
         {getSelectedScreen()}
+        <NavBar />
     </div>
   )
 }

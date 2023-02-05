@@ -7,7 +7,7 @@ const orderSchema = mongoose.Schema({
     },
     comments: String,
     creator: String,
-    image: String,
+    images: [String],
     status: {
         type: String,
         default: "Pending"

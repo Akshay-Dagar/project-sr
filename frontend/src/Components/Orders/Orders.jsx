@@ -19,14 +19,15 @@ const Orders = () => {
   }
 
   return (
-    <div>
-      <h1>Orders</h1>
+    <div className='orders-container'>
       {/* Display a list of orders */}
       {orders?.map(order => (
-        <div key={order._id}>
-          <p>Order ID: {order._id}</p>
-          <p>Status: {order.status}</p>
-          <div>
+        <div key={`order-${order._id}`} className="order-root">
+          <div className='order-content'>
+            <p>Order ID: {order._id}</p>
+            <p>Status: {order.status}</p>
+          </div>
+          <div className='order-actions'>
             <button><BsTrashFill /></button>
             <label htmlFor="mark-as-dropdown">Mark as</label>
             <select
@@ -37,8 +38,8 @@ const Orders = () => {
               <option value="Partially Completed">Partially Completed</option>
               <option value="Cancelled">Cancelled</option>
             </select>
+            <button onClick={() => dispatch(setSelectedOrder(order))}>View</button>
           </div>
-          <button onClick={() => dispatch(setSelectedOrder(order))}>View</button>
         </div>
       ))}
     </div>

@@ -1,95 +1,104 @@
 .order-form {
     padding: 2rem;
-  }
-  
-  .order-form__title {
-    margin-bottom: 1rem;
-  }
-
-  .order-form__upload-container {
-    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
-  }
+    margin-bottom: 4rem;
+}
   
-  .order-form__comments-container {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .order-form__comments-label {
-    margin-right: 1rem;
-    display: block;
-  }
-  
-  .order-form__comments-input {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    height: 1.5rem;
-    border: 0.5px solid grey;
-    border-color: cadetblue;
-  }
-  
-  .order-form__submit-btn {
-    padding: 0.5rem 1rem;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    height: 3rem;
-    text-transform: uppercase;
-  }
+.order-form__upload-container {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+}
 
-  .order-form__submit-btn:disabled {
-    background-color: gray;
-    cursor: not-allowed;
-  }
+.order-form__comments-container {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+}
 
-  .order-form__upload-label {
-    background-color: indigo;
-    padding: 0.5rem 1rem;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    height: 1.5rem;
-    text-transform: uppercase;
-  }
+.order-form__comments-label {
+  margin-right: 1rem;
+  display: block;
+}
 
-  .order-form__images {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 3rem 0;
-  }
+.order-form__comments-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  height: 5rem;
+  border: 0.5px solid rgba($color: #000000, $alpha: 0.2);;
+  border-radius: 5px;
+  font-size: x-large;
+}
 
-  .order-form__image-container {
-    width: 200px;
-    height: 200px;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    border-radius: 15%;
-  }
+.order-form__submit-btn {
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 4rem;
+  text-transform: uppercase;
+  font-size: large;
+}
 
-  .order-form__image-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10%;
-  }
+.order-form__submit-btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
 
-  .order-form__image-remove {
-    color: white;
-    background-color: red;
-    width: 100%;
-    border-radius: 5px;
-    height: 3rem;
-    margin-bottom: 2rem;
-    font-size: x-large;
-    cursor: pointer;
+.order-form__upload-label {
+  background-color: indigo;
+  padding: 0.5rem 0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 3rem;
+  text-transform: uppercase;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+
+}
+
+.order-form__images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  justify-content: flex-start;
+
+  @media screen and (max-width: 500px) {
+    justify-content: center;
   }
-  
-  
+}
+
+.order-form__image-container {
+  max-height: 200px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  border-radius: 5px;
+  margin-bottom: 7rem;
+}
+
+.order-form__image-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+}
+
+.order-form__image-remove {
+  color: white;
+  background-color: red;
+  width: 100%;
+  border-radius: 5px;
+  height: 4rem;
+  font-size: x-large;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+

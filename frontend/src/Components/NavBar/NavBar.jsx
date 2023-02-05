@@ -20,13 +20,9 @@ const NavBar = () => {
   }
   return (
     <div className="navbar">
-        <div className="navbar__left">
-            <AiFillHome className="navbar-item" onClick={handleClickHome} />
-            <FaClipboardList className="navbar-item" onClick={handleClickOrders} />
-        </div>
-        <div className='navbar__right'>
-            <FaUser className="navbar-item" />
-        </div>
+          <AiFillHome className="navbar-item" onClick={handleClickHome} style={{order: 1}} />
+          <FaClipboardList className="navbar-item" onClick={handleClickOrders} style={{order: 0}} />
+          <FaUser className="navbar-item" style={{order: 2}} />
     </div>
   )
 }
