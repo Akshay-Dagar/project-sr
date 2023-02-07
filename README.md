@@ -8,3 +8,7 @@ Order management application for logistics business.
 ### Tech Stack: (MERN)
 ##### frontend: React, Redux, SCSS
 ##### backend: Express, MongoDB, Mongoose
+
+### todo:
+##### Orders pagination
+##### auto delete cancelled or fulfilled orders
