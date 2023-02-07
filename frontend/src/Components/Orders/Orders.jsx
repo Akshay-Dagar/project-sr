@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import api from '../../api';
 import { useDispatch, useSelector } from 'react-redux';
 import OrderThumb from './OrderThumb';
+import OrdersFilter from '../OrdersFilter/OrdersFilter';
 
 const Orders = () => {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ const Orders = () => {
 
   return (
     <div className='orders-container'>
-      {/* Display a list of orders */}
+      <OrdersFilter />
       {orders?.map(order => (
         <div key={`order-${order._id}`} className="order-root">
           <OrderThumb order={order}/>
