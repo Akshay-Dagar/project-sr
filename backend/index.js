@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import Order from "./models/order.js";
+import User from "./models/user.js";
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,23 @@ dotenv.config();
 app.get(['/','/api'], async (_, res) => {
     try {
         res.send("Greetings from the backend!!!")
+    }
+    catch (err) {
+        res.status(500).json({message: "Something went wrong."})
+    }
+});
+
+//greet
+app.get(['/','/api/login'], async (req, res) => {
+    try {
+        const id = req.body.userId
+        const pass = req.body.password
+
+        const user = await User.findOne({ userId: id })
+        if (user.password !== pass) {
+            res.status(401).json({message: "User is not authorized to access the application (Please check your username and password)"})
+        }
+        res.status(200)
     }
     catch (err) {
         res.status(500).json({message: "Something went wrong."})
