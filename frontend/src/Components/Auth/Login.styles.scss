@@ -1,0 +1,45 @@
+.form-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    background-color: red;
+    border-radius: 15px;
+  
+    .title {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+      font-size: xx-large;
+    }
+  
+    .input-container {
+      margin: 1rem 0;
+      text-align: center;
+      width: 100%;
+  
+      .input {
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid gray;
+        font-size: 1rem;
+      }
+    }
+  
+    .button-container {
+      text-align: center;
+  
+      .button {
+        background-color: rgb(166, 83, 243);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+  }
+  
