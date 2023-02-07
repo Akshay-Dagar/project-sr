@@ -12,3 +12,4 @@ Order management application for logistics business.
 ### todo:
 ##### Orders pagination
 ##### auto delete cancelled or fulfilled orders
+##### box shadow

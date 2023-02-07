@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const selectedScreenSlice = createSlice({
   name: 'selectedScreen',
   initialState: {
-    value: "login"
+    value: "createOrder"
   },
   reducers: {
     setSelectedScreen: (state, action) => {
