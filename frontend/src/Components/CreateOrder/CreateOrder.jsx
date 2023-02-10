@@ -45,7 +45,7 @@ const CreateOrder = () => {
           <div className='order-form__images'>
             {formData.images.map((img, idx) => (
               <div className='order-form__image-container' key={`image-${idx}`}>
-                <img className='order-form__image-img' src={img} />
+                <img className='order-form__image-img' src={img} alt="Failed to load image" />
                 <button className='order-form__image-remove' onClick={() => removeImage(img)}><BsTrashFill /></button>
               </div>
             ))}

@@ -10,13 +10,13 @@ const Orders = () => {
 
   useEffect(() => {
     dispatch(api.getOrders())
-  }, [])
+  }, [dispatch])
   
 
-  const handleOrderStatusChange = (order, newStatus) => {
-    order.status = newStatus
-    dispatch(api.updateOrder(order))
-  }
+  // const handleOrderStatusChange = (order, newStatus) => {
+  //   order.status = newStatus
+  //   dispatch(api.updateOrder(order))
+  // }
 
   return (
     <div className='orders-container'>

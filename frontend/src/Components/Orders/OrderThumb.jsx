@@ -14,7 +14,7 @@ const OrderThumb = (props) => {
   return (
     <div className='order-content__container' onClick={() => dispatch(setSelectedOrder(order))}>
       {props.order?.images?.length ? 
-        <img src={props.order.images[0]} className='order-thumbnail' /> : 
+        <img src={props.order.images[0]} className='order-thumbnail' alt='Failed to load image' /> : 
         null}
       <div className='order-content__body'>
         <p><b>Order ID:</b> {order._id}</p>

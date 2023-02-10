@@ -56,7 +56,7 @@ const updateOrder = order => async dispatch => {
             body: JSON.stringify(order)
         })
     
-        const data = await res.json()
+        await res.json()
         if (res.status === 201) {
             dispatch(setMessage({value: "Success!!! Your order has been updated", type: "Success"}))
         } else {
@@ -68,4 +68,5 @@ const updateOrder = order => async dispatch => {
     }
 }
 
-export default {getOrders, createOrder, updateOrder}
+const api = {getOrders, createOrder, updateOrder}
+export default api
