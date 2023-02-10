@@ -13,3 +13,8 @@ Order management application for logistics business.
 ##### Orders pagination
 ##### auto delete cancelled or fulfilled orders
 ##### box shadow
+
+
+
+# cyclic.sh deployement:
+#### link your own -> link project-sr -> advanced -> set root path to /backend, set dist path also to /backend
