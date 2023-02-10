@@ -4,7 +4,7 @@
 import { setMessage } from "./Reducers/message"
 import { setOrders } from "./Reducers/orders"
 
-const endpoint = "http://localhost:5000/api"
+const endpoint = "https://srmarketing.cyclic.app/api"
 
 // Get all orders as a list
 const getOrders = () => async dispatch => {
@@ -34,7 +34,7 @@ const createOrder = order => async dispatch => {
             body: JSON.stringify(order)
         })
     
-        const data = await res.json()
+        await res.json()
         if (res.status === 201) {
             dispatch(setMessage({value: "Success!!! Your order has been created", type: "Success"}))
         } else {
