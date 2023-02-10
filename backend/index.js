@@ -1,9 +1,14 @@
+console.log("akshay: yo1111111111111111111111111111111111111111111111111");
+
+
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import Order from "./models/order.js";
 import User from "./models/user.js";
+
+console.log("akshay: yo22222222222222222222222222222222222222222222222222");
 
 const app = express();
 app.use(cors());
@@ -75,11 +80,11 @@ app.patch('/api/order', async (req, res) => {
 //connect to mongo db and run server if connection successful
 mongoose.connect(process.env.MONGODB_CONNECTION_URL)
     .then(() => {
-        app.listen(process.env.PORT, () => {
+        app.listen(process.env.PORT || 5000, () => {
             console.log(`Server listening on port ${process.env.PORT}`);
         });
     }).catch(err => {
-        console.log(err.message);
+        console.log("akshay: mongodb connection error!!!!!!!!!!!!!!", err.message);
     })
 
 
